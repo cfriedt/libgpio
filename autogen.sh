@@ -29,7 +29,8 @@ if [ "$1" = "clean" ]; then
   rm -Rf \
     $(find * \
       -name '*~' \
-      -o -name '*.in' \
+      -o -name 'config.h.in' \
+      -o -name 'Makefile.in' \
       -o -name 'aclocal.m4' \
       -o -name 'ar-lib' \
       -o -name 'autom4te.cache' \

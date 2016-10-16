@@ -20,29 +20,16 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-# XXX: @CF: The only directory we need to operate on recusively is 'include'
-# because nobase_include_HEADERS does not install headers to the correct
-# locations otherwise.
-SUBDIRS = \
-	include
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
 
-ACLOCAL_AMFLAGS = -Im4
-
-AM_CPPFLAGS =
-AM_CPPFLAGS += -Iinclude
-
-AM_CXXFLAGS = -std=c++11
-
-lib_LTLIBRARIES =
-noinst_LTLIBRARIES =
-noinst_PROGRAMS =
-
-TESTS =
-
-include example/Makefile.am
-include src/Makefile.am
-include test/Makefile.am
-
-pkgconfig_DATA = \
-	libgpio.pc \
-	libgpio++.pc
+Name: libgpio
+Description: A C library to interact with Linux GPIO. Useful for userspace drivers. 
+Version: 0.0.1
+URL: https://github.com/cfriedt/libgpio
+Requires:
+Conflicts:
+Libs: -L${libdir} -lgpio
+Cflags: -I${includedir}

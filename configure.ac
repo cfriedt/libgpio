@@ -22,12 +22,16 @@ dnl SOFTWARE.
 
 AC_PREREQ([2.69])
 
-AC_INIT([libgpio], [0.1], [chrisfriedt@gmail.com])
+AC_INIT([libgpio], [0.1.0], [chrisfriedt@gmail.com])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign subdir-objects])
 
 AC_CONFIG_SRCDIR([include/libgpio/Gpio.h])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIRS([m4])
+
+# Dependencies
+PKG_PROG_PKG_CONFIG
+PKG_INSTALLDIR
 
 # Checks for programs.
 AC_PROG_CXX
@@ -65,5 +69,7 @@ LT_INIT()
 AC_CONFIG_FILES([
 	Makefile
 	include/Makefile
+	libgpio.pc
+	libgpio++.pc
 ])
 AC_OUTPUT
