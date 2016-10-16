@@ -29,7 +29,7 @@ Name: libgpio
 Description: A C++ library to interact with Linux GPIO. Useful for userspace drivers. 
 Version: 0.0.1
 URL: https://github.com/cfriedt/libgpio
-Requires:
+Requires: libgpio = 0.0.1
 Conflicts:
 Libs: -L${libdir} -lgpio++
 Cflags: -I${includedir}
