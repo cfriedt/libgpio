@@ -26,7 +26,7 @@ AC_INIT([libgpio], [0.0.1], [chrisfriedt@gmail.com])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign subdir-objects])
 
 AC_CONFIG_SRCDIR([include/libgpio/Gpio.h])
-AC_CONFIG_HEADERS([config.h])
+AC_CONFIG_SRCDIR([autogen.sh])
 AC_CONFIG_MACRO_DIRS([m4])
 
 # Dependencies
@@ -35,7 +35,13 @@ PKG_INSTALLDIR
 
 # Checks for programs.
 AC_PROG_CXX
+AC_PROG_AWK
 AC_PROG_CC
+AC_PROG_CPP
+AC_PROG_INSTALL
+AC_PROG_LN_S
+AC_PROG_MAKE_SET
+AC_PROG_RANLIB
 AC_PROG_INSTALL
 AC_PROG_MAKE_SET
 
@@ -53,14 +59,14 @@ AC_SUBST([GTEST_LIBS])
 AM_CONDITIONAL([HAVE_GTEST],[test "x$HAVE_GTEST" = "xyes"])
 
 # Checks for header files.
-AC_CHECK_HEADERS([fcntl.h stdint.h stdlib.h string.h sys/socket.h unistd.h])
+AC_CHECK_HEADERS([fcntl.h inttypes.h limits.h stdint.h stdlib.h string.h sys/socket.h unistd.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_CHECK_HEADER_STDBOOL
 AC_TYPE_UINT16_T
 
 # Checks for library functions.
-AC_CHECK_FUNCS([memset])
+AC_CHECK_FUNCS([memset strtol uname])
 
 AM_PROG_AR
 

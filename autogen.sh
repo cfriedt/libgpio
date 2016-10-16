@@ -29,6 +29,7 @@ if [ "$1" = "clean" ]; then
   rm -Rf \
     $(find * \
       -name '*~' \
+      -o -name 'config.h' \
       -o -name 'config.h.in' \
       -o -name 'Makefile.in' \
       -o -name 'aclocal.m4' \
@@ -54,6 +55,8 @@ if [ "$1" = "clean" ]; then
       -o -name '*.o' \
       -o -name '*.lo' \
       -o -name '*.la' \
+      -o -name '*.log' \
+      -o -name '*.scan' \
   )
   exit 0
 fi
