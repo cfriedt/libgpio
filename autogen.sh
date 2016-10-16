@@ -48,6 +48,7 @@ if [ "$1" = "clean" ]; then
       -o -name 'ltversion.m4' \
       -o -name 'lt~obsolete.m4' \
       -o -name 'missing' \
+      -o -name 'stamp-h1' \
       -o -name 'test-driver' \
       -o -name '.deps' \
       -o -name '.libs' \
