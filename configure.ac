@@ -22,7 +22,7 @@ dnl SOFTWARE.
 
 AC_PREREQ([2.69])
 
-AC_INIT([libgpio], [0.1.0], [chrisfriedt@gmail.com])
+AC_INIT([libgpio], [0.0.1], [chrisfriedt@gmail.com])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign subdir-objects])
 
 AC_CONFIG_SRCDIR([include/libgpio/Gpio.h])
