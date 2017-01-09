@@ -54,12 +54,7 @@ Gpio::Gpio( unsigned num, gpio_value_t value )
 	int r;
 	gpio_direction_t direction;
 
-	if ( ! gpio_is_exported( num ) ) {
-		r = gpio_export( num );
-		if ( -1 == r ) {
-			throw std::system_error( errno, std::system_category() );
-		}
-	}
+	export_();
 
 	direction = GPIO_DIR_OUT;
 	r = gpio_direction_set( num, & direction );
@@ -141,12 +136,10 @@ Gpio::Gpio()
 
 Gpio::~Gpio() {
 
-	// XXX: TODO: should we unconditionally set the pin back to input?
-
 	interrupt();
-	if ( gpio_is_exported( gpio_num ) ) {
-		gpio_unexport( gpio_num );
-	}
+
+	// TODO: @CF: Add flag => should_unexport_in_dtor ?
+
 	close_fds();
 }
 

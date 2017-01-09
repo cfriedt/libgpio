@@ -153,7 +153,8 @@ TEST_F( GpioTest, TestWaitForInterruptFail ) {
 	int actual_errno;
 
 	actual_errno = EXIT_SUCCESS;
-	expected_errno = EINTR;
+//	expected_errno = EINTR;
+	expected_errno = ETIMEDOUT;
 	try {
 		gpio.wait( 1 );
 	} catch( std::system_error &e ) {
